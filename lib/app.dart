@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'views/home/widget/home_screen.dart';
 import 'views/utils/theme_cubit.dart';
 
 class App extends StatelessWidget {
@@ -25,7 +26,7 @@ class AppView extends StatelessWidget {
         return MaterialApp(
           theme: theme,
           debugShowCheckedModeBanner: false,
-          home: Container(),
+          home: HomeScreen(),
         );
       },
     );

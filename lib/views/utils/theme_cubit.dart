@@ -7,7 +7,9 @@ class ThemeCubit extends Cubit<ThemeData> {
   ThemeCubit() : super(_theme);
 
   static final _theme = ThemeData(
-    brightness: Brightness.light,
-    primaryColor: kAccentColor,
-  );
+      brightness: Brightness.light,
+      primaryColor: kAccentColor,
+      iconTheme: IconThemeData(
+        size: 25.0,
+      ));
 }
