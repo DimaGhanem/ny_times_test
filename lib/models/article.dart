@@ -22,18 +22,18 @@ class Article extends Equatable {
       'id': id,
       'title': title,
       'byline': byline,
-      'publishedDate': publishedDate ,
-      'section': section ,
+      'publishedDate': publishedDate,
+      'section': section,
     };
   }
 
   factory Article.fromMap(Map<String, dynamic> map) {
-
     return Article(
-        id: map['id'],
-        title: map['title'],
-        byline: map['byline'],
-        publishedDate: map['publishedDate'],
-      section: map['section'],);
+      id: map['id'],
+      title: map['title'],
+      byline: map['byline'],
+      publishedDate: map['publishedDate'],
+      section: map['section'],
+    );
   }
 }
