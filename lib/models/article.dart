@@ -1,5 +1,4 @@
 class Article {
-
   int? _id;
   String? _title;
   String? _byline;
