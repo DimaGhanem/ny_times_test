@@ -18,7 +18,6 @@ class ArticleApiProvider {
       {required String section, required String period}) async {
     //we can save api-key in shared preference
 
-
     final String _endpointGetArticles =
         'https://api.nytimes.com/svc/mostpopular/v2/mostviewed/$section/$period.json?api-key=$kYourApiKey';
 
