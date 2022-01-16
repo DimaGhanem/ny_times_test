@@ -30,4 +30,18 @@ void main() {
     //assert
     expect(result.status, 'OK');
   });
+
+  //Failure
+  test('Test if status of response is Not OK ', () async {
+    //act
+    ResponseModel result =
+        await repository.fetchArticleBySectionAndPeriodWithResponse(
+            section: 'all-sections', period: '3');
+
+    print(result.status);
+
+    //assert
+    expect(result.status, 'Received invalid status code: 404');
+    expect(result.results.length == 0, true);
+  });
 }
