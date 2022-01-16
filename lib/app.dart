@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ny_times_test/service_locator.dart';
+import 'package:ny_times_test/views/home/bloc/home_bloc.dart';
 
 import 'views/home/widget/home_screen.dart';
 import 'views/utils/theme_cubit.dart';
@@ -23,10 +25,15 @@ class AppView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeData>(
       builder: (_, theme) {
-        return MaterialApp(
-          theme: theme,
-          debugShowCheckedModeBanner: false,
-          home: HomeScreen(),
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider<HomeBloc>(create: (_) => serviceLocator<HomeBloc>()),
+          ],
+          child: MaterialApp(
+            theme: theme,
+            debugShowCheckedModeBanner: false,
+            home: HomeScreen(),
+          ),
         );
       },
     );
