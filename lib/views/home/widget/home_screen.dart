@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ny_times_test/models/article.dart';
 import 'package:ny_times_test/views/home/bloc/home_bloc.dart';
 
+import '../../circle_progress.dart';
 import 'drawer_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -46,6 +47,9 @@ class _ArticleListWidgetState extends State<ArticleListWidget> {
   // late HomeBloc homeBloc;
 
   List<Article> articles = [];
+  bool loading = true;
+  bool error = false;
+  String failureError = '';
   @override
   void initState() {
     // homeBloc = BlocProvider.of<HomeBloc>(context)..add(ArticlesStartFetching());
@@ -61,14 +65,31 @@ class _ArticleListWidgetState extends State<ArticleListWidget> {
         if (state != null) {
           _mapStateToActions(state);
         }
-        return Container(child: Text('Article length  ${articles.length}'));
+        if (error) {
+          return Center(child: Text('$failureError'));
+        } else if (loading) {
+          return const Center(child: CircleProgress());
+        } else if (!loading && !error) {
+          return Center(child: Text('${articles.length}'));
+        } else {
+          return SizedBox();
+        }
       },
     );
   }
 
   void _mapStateToActions(HomeState state) {
     if (state is ArticlesLoadSuccess) {
+      loading = false;
       articles = state.articles;
+    }
+    if (state is ArticlesLoading) {
+      loading = true;
+    }
+    if (state is LoadFailed) {
+      loading = false;
+      error = true;
+      failureError = state.failure.code!;
     }
   }
 }
