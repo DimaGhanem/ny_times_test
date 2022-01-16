@@ -4,6 +4,7 @@ import 'package:ny_times_test/models/article.dart';
 import 'package:ny_times_test/views/home/bloc/home_bloc.dart';
 
 import '../../circle_progress.dart';
+import 'article_list.dart';
 import 'drawer_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -70,7 +71,7 @@ class _ArticleListWidgetState extends State<ArticleListWidget> {
         } else if (loading) {
           return const Center(child: CircleProgress());
         } else if (!loading && !error) {
-          return Center(child: Text('${articles.length}'));
+          return Center(child: ArticleList(articles: articles));
         } else {
           return SizedBox();
         }
