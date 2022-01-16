@@ -38,11 +38,10 @@ dependencies:
   data_connection_checker: ^0.3.4
   rxdart: ^0.27.3
   dio: ^4.0.4
-  global_configuration: ^2.0.0-nullsafety.1
 
 dev_dependencies:
   flutter_test:
-    sdk: flutte
+    sdk: flutter
   test: ^1.16.8
 
 #  integration_test:
@@ -62,7 +61,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
-    - assets/cfg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
