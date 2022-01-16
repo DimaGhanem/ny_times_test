@@ -14,4 +14,12 @@ class StorageRepoImpl extends StorageRepository {
         await _apiProvider.getArticle(section: section, period: period);
     return _response.results;
   }
+
+  @override
+  Future<ResponseModel> fetchArticleBySectionAndPeriodWithResponse(
+      {required String section, required String period}) async {
+    ResponseModel _response =
+        await _apiProvider.getArticle(section: section, period: period);
+    return _response;
+  }
 }

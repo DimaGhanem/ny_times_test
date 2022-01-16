@@ -10,7 +10,7 @@ class ResponseModel {
       : results = (json["results"] as List)
             .map((i) => new Article.fromMap(i))
             .toList(),
-        status = "";
+        status = json["status"] ?? '';
 
   ResponseModel.withError(String status)
       : results = [],

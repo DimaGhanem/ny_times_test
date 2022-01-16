@@ -4,7 +4,7 @@ This is a simple app to hit the NY Times Most Popular Articles API and show a li
 
 ## Description
 
-This id flutter project For NY Times Most Popular Articles App.
+This is flutter project For NY Times Most Popular Articles App.
 
 This app show the articles given by NY Times Most Popular Articles Free API, And the steps shown below : 
  - 1- You can start from this url[ NY Times API ](https://developer.nytimes.com/apis) 
@@ -18,11 +18,22 @@ This app show the articles given by NY Times Most Popular Articles Free API, And
  - using [Get-it](https://pub.dev/packages/get_it) as a Service Locator for dependency injection.
  - using [Dio](https://pub.dev/packages/dio) as networking library for Http client for Dart.
  - Object Oriented Programming approach.
+ - using Unit test.
 
+
+ ## Branches Description
+ - (home) branch it is contain the home UI and it is functionality.
+ The user can see all most popular articles a list of article and each item of this list has title, byline, section and date of publishing.
+ - (unit-test) branch it is contain new version of app after testing it and maintain it using unit test.
+ The unit test i used for the main Business logic which is fetch data add put it in an Article list of objects.
+ 
+
+ 
+ 
  ## Screenshots 
-<p align="center">
+<p align="center" >
+    Home Screenshot
     <img src="screenshots/Screenshot_Home.png" alt="Image"  />
-
 </p>
 
 
