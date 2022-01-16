@@ -19,4 +19,17 @@ void main() {
     //assert
     expect(result.length != 0, true);
   });
+
+  //success
+  test('Test if status of response is OK ', () async {
+    //act
+    ResponseModel result =
+        await repository.fetchArticleBySectionAndPeriodWithResponse(
+            section: 'all-sections', period: '7');
+
+    //assert
+    expect(result.status, 'OK');
+  });
+
+
 }
