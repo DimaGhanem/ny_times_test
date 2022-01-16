@@ -31,7 +31,8 @@ This app show the articles given by NY Times Most Popular Articles Free API, And
  
  
  ## Screenshots 
-<p align="center">
+<p align="center" >
+    Home Screenshot
     <img src="screenshots/Screenshot_Home.png" alt="Image"  />
 </p>
 
