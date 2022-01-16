@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:ny_times_test/models/response_model.dart';
 
 import '../utils/logging_interceptor.dart';
 
@@ -10,6 +11,22 @@ class ArticleApiProvider {
         BaseOptions(receiveTimeout: 5000, connectTimeout: 5000);
     _dio = Dio(options);
     _dio.interceptors.add(LoggingInterceptor());
+  }
+
+  Future<ResponseModel> getArticle(
+      {required String section, required String period}) async {
+    //we can save api-key in shared preference
+    final String _endpointGetArticles =
+        'https://api.nytimes.com/svc/mostpopular/v2/mostviewed/$section/$period.json?api-key=b6jA0EZuBHEdQSMyx6pT0DVW5Uk0VOoZ';
+
+    try {
+      Response response = await _dio.get(_endpointGetArticles);
+      var result = ResponseModel.fromMap(response.data);
+      return result;
+    } catch (error, stacktrace) {
+      print("Exception occured: $error stackTrace: $stacktrace");
+      return ResponseModel.withError(_handleError(error: error));
+    }
   }
 
   String _handleError({required error}) {
