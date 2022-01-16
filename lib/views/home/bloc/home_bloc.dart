@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:ny_times_test/models/article.dart';
+import 'package:ny_times_test/utils/failure.dart';
+import 'package:ny_times_test/utils/functions.dart';
 
 import '/services/storage_service/storage_repository.dart';
 
@@ -25,8 +27,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Stream<HomeState> handleArticlesStartFetching() async* {
     yield ArticlesLoading();
-    final articles = await storageRepository.fetchArticleBySectionAndPeriod(
-        period: '7', section: 'all-sections');
-    yield ArticlesLoadSuccess(articles);
+    if (!await Functions.getNetworkStatus()) {
+      yield LoadFailed(NetworkException());
+    } else {
+      final articles = await storageRepository.fetchArticleBySectionAndPeriod(
+          period: '7', section: 'all-sections');
+      yield ArticlesLoadSuccess(articles);
+    }
   }
 }
