@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:ny_times_test/models/response_model.dart';
+import 'package:ny_times_test/views/utils/contants.dart';
 
 import '../utils/logging_interceptor.dart';
 
@@ -16,8 +17,10 @@ class ArticleApiProvider {
   Future<ResponseModel> getArticle(
       {required String section, required String period}) async {
     //we can save api-key in shared preference
+
+
     final String _endpointGetArticles =
-        'https://api.nytimes.com/svc/mostpopular/v2/mostviewed/$section/$period.json?api-key=b6jA0EZuBHEdQSMyx6pT0DVW5Uk0VOoZ';
+        'https://api.nytimes.com/svc/mostpopular/v2/mostviewed/$section/$period.json?api-key=$kYourApiKey';
 
     try {
       Response response = await _dio.get(_endpointGetArticles);
