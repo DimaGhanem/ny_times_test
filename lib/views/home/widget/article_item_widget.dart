@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ny_times_test/models/article.dart';
 import 'package:ny_times_test/views/utils/contants.dart';
 
 class ArticleItemWidget extends StatelessWidget {
-  const ArticleItemWidget({Key? key}) : super(key: key);
+  final Article article;
+  const ArticleItemWidget({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class ArticleItemWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Grichka and Igor Bogdanoff, Twins in an Uneasy Spotlight, Die at 72',
+                  article.title ?? '',
                   style: Theme.of(context).textTheme.headline5,
                   maxLines: 2,
                   softWrap: true,
@@ -35,7 +37,7 @@ class ArticleItemWidget extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  'By Clay Risen',
+                  article.byline ?? '',
                   style: Theme.of(context).textTheme.subtitle2,
                   maxLines: 2,
                   softWrap: true,
@@ -48,7 +50,7 @@ class ArticleItemWidget extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        "THOMPSON",
+                        article.section ?? '',
                         style: Theme.of(context).textTheme.subtitle2,
                       ),
                     ),
@@ -64,7 +66,7 @@ class ArticleItemWidget extends StatelessWidget {
                           width: 12,
                         ),
                         Text(
-                          '2019-02-23',
+                          article.publishedDate ?? '',
                           style: Theme.of(context).textTheme.subtitle2,
                           maxLines: 2,
                           softWrap: true,
