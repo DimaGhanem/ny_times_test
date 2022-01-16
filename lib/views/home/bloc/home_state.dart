@@ -19,3 +19,12 @@ class ArticlesLoadSuccess extends HomeState {
   @override
   List<Object> get props => [articles];
 }
+
+class LoadFailed extends HomeState {
+  final Failure failure;
+  const LoadFailed(this.failure)
+      : assert(failure != null, "field must equal value");
+
+  @override
+  List<Object> get props => [failure];
+}
