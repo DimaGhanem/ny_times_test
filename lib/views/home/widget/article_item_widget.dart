@@ -27,7 +27,7 @@ class ArticleItemWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  article.title ?? '',
+                  article.title,
                   style: Theme.of(context).textTheme.headline5,
                   maxLines: 2,
                   softWrap: true,
@@ -37,7 +37,7 @@ class ArticleItemWidget extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  article.byline ?? '',
+                  article.byline,
                   style: Theme.of(context).textTheme.subtitle2,
                   maxLines: 2,
                   softWrap: true,
@@ -50,7 +50,7 @@ class ArticleItemWidget extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        article.section ?? '',
+                        article.section,
                         style: Theme.of(context).textTheme.subtitle2,
                       ),
                     ),
@@ -66,7 +66,7 @@ class ArticleItemWidget extends StatelessWidget {
                           width: 12,
                         ),
                         Text(
-                          article.publishedDate ?? '',
+                          article.publishedDate,
                           style: Theme.of(context).textTheme.subtitle2,
                           maxLines: 2,
                           softWrap: true,
