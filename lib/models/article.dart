@@ -22,7 +22,7 @@ class Article extends Equatable {
       'id': id,
       'title': title,
       'byline': byline,
-      'publishedDate': publishedDate,
+      'published_date': publishedDate,
       'section': section,
     };
   }
@@ -32,7 +32,7 @@ class Article extends Equatable {
       id: map['id'],
       title: map['title'],
       byline: map['byline'],
-      publishedDate: map['publishedDate'],
+      publishedDate: map['published_date'],
       section: map['section'],
     );
   }
