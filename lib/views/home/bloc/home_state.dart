@@ -7,3 +7,5 @@ abstract class HomeState extends Equatable {
 }
 
 class HomeInitial extends HomeState {}
+
+class ArticlesLoading extends HomeState {}
