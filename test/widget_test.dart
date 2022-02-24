@@ -4,44 +4,44 @@ import 'package:ny_times_test/services/storage_service/storage_repo_impl.dart';
 import 'package:test/test.dart';
 
 void main() {
-  late StorageRepoImpl repository;
+//   late StorageRepoImpl repository;
 
-  setUp(() {
-    repository = StorageRepoImpl();
-  });
+//   setUp(() {
+//     repository = StorageRepoImpl();
+//   });
 
-  //success
-  test('list of article length should not be 0 for this period ', () async {
-    //act
-    List<Article> result = await repository.fetchArticleBySectionAndPeriod(
-        section: 'all-sections', period: '7');
+//   //success
+//   test('list of article length should not be 0 for this period ', () async {
+//     //act
+//     List<Article> result = await repository.fetchArticleBySectionAndPeriod(
+//         section: 'all-sections', period: '7');
 
-    //assert
-    expect(result.length != 0, true);
-  });
+//     //assert
+//     expect(result.length != 0, true);
+//   });
 
-  //success
-  test('Test if status of response is OK ', () async {
-    //act
-    ResponseModel result =
-        await repository.fetchArticleBySectionAndPeriodWithResponse(
-            section: 'all-sections', period: '7');
+//   //success
+//   test('Test if status of response is OK ', () async {
+//     //act
+//     ResponseModel result =
+//         await repository.fetchArticleBySectionAndPeriodWithResponse(
+//             section: 'all-sections', period: '7');
 
-    //assert
-    expect(result.status, 'OK');
-  });
+//     //assert
+//     expect(result.status, 'OK');
+//   });
 
-  //Failure
-  test('Test if status of response is Not OK ', () async {
-    //act
-    ResponseModel result =
-        await repository.fetchArticleBySectionAndPeriodWithResponse(
-            section: 'all-sections', period: '3');
+//   //Failure
+//   test('Test if status of response is Not OK ', () async {
+//     //act
+//     ResponseModel result =
+//         await repository.fetchArticleBySectionAndPeriodWithResponse(
+//             section: 'all-sections', period: '3');
 
-    print(result.status);
+//     print(result.status);
 
-    //assert
-    expect(result.status, 'Received invalid status code: 404');
-    expect(result.results.length == 0, true);
-  });
+//     //assert
+//     expect(result.status, 'Received invalid status code: 404');
+//     expect(result.results.length == 0, true);
+//   });
 }
