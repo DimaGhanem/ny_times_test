@@ -4,6 +4,25 @@ import 'package:ny_times_test/services/storage_service/storage_repo_impl.dart';
 import 'package:test/test.dart';
 
 void main() {
+     testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+       
+         expect(1, 1);
+       
+     // Build our app and trigger a frame.
+//      await tester.pumpWidget(new MyApp());
+
+//     // Verify that our counter starts at 0.
+//     expect(find.text('0'), findsOneWidget);
+//     expect(find.text('1'), findsNothing);
+
+//     // Tap the '+' icon and trigger a frame.
+//     await tester.tap(find.byIcon(Icons.add));
+//     await tester.pump();
+
+//     // Verify that our counter has incremented.
+//     expect(find.text('0'), findsNothing);
+//     expect(find.text('1'), findsOneWidget);
+ });
 //   late StorageRepoImpl repository;
 
 //   setUp(() {
